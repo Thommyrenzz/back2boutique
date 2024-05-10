@@ -40,81 +40,41 @@ body {
     padding-left: 3%;
 }
 
-
-/* Carousel */
-.carousel-inner img {
-    max-height: 400px; /* altezza massima per le immagini del carosello */
-}
-
-/* Info Cards */
-.card {
-    border-radius: 10px; /* bordo arrotondato */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* ombra leggera */
-    background-color: #1a1a1a;
+/* Dettagli del prodotto */
+#text{
     color: #d3d3d3;
 }
-
-.card-img-top {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px; /* arrotondare solo gli angoli superiori */
+.product-container {
+    background-color: #1a1a1a; /* Sfondo scuro per la sezione del prodotto */
+    border-radius: 10px; /* Angoli arrotondati */
+    padding: 20px; /* Spaziatura interna */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Leggera ombra */
 }
 
-.card-body {
-    text-align: center; /* centrare il testo */
+.product-container img {
+    max-width: 100%; /* Dimensione massima delle immagini */
+    border-radius: 10px; /* Arrotonda gli angoli delle immagini */
 }
 
-.card .btn {
-    background-color: #0000;
-    color: #d3d3d3;
+.product-container h2 {
+    color: white; /* Colore del titolo */
 }
 
-.card .btn:hover {
-    background-color: #0000; /* colore più scuro per il hover */
+.product-container p {
+    color: lightgray; /* Colore dei paragrafi */
 }
 
-
-/*Story*/
-#story {
-    background-color: #1a1a1a; /* colore più scuro per il hover */
-    border-radius: 10px; /* bordo arrotondato */
-    color: #d3d3d3;
-}
-/*Griglia Brand*/
-.grid-cell {
-    padding: 20px; /* spazio interno */
-    border: 1px solid #ffffff; /* bordo per la griglia */
-    transition: background-color 0.3s; /* transizione fluida */
+.product-container .product-price {
+    color: white; /* Colore del prezzo */
 }
 
-.grid-cell img {
-    max-width: 100px; /* dimensione massima delle immagini */
+.product-container .btn {
+    background-color: #444; /* Colore del pulsante */
+    color: white; /* Colore del testo del pulsante */
 }
 
-.grid-cell:hover {
-    background-color: rgba(49, 48, 46, 0.2); /* effetto hover che scurisce la cella */
-    cursor: pointer; /* indicatore di click */
-}
-
-/* Colonne divisorie per la griglia */
-
-.row .col-sm-4 {
-    border-right: 1px solid #ffffff; /* bordo verticale */
-    border-top: none;
-    border-left: none;
-}
-
-/* Rimuovere il bordo a destra per l'ultima colonna di ogni riga */
-.row .col-sm-4:last-child {
-    border-right: none; 
-}
-
-/* Rimuovere il bordo inferiore per l'ultima riga */
-.row:last-child {
-    border-top: none;
-}
-
-#riga2 .col-sm-4.text-center.grid-cell {
-    border-bottom: none;
+.product-container .btn:hover {
+    background-color: #333; /* Effetto hover */
 }
 
 /* Footer */
