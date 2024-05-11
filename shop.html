@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Back2Boutique - Dettagli del prodotto">
+    <meta name="description" content="Back2Boutique - Negozio">
     <meta name="author" content="Thomas Renzini">
     <link rel="icon" type="image/png" href="b2b.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
@@ -11,13 +11,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="single-product.css">
-    <title>Dettaglio Prodotto - Back2Boutique</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="shop.css">
+    <title>Negozio - Back2Boutique</title>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark justify-content-between"> <!-- Navbar tra elementi -->
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
     <!-- Menu Burger -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,12 +26,12 @@
 
     <!-- Menu collassabile -->
     <div class="collapse navbar-collapse" id="navbarNav" align="center">
-        <ul class="navbar-nav justify-content-left"> <!-- w-100 per coprire tutta la larghezza -->
+        <ul class="navbar-nav justify-content-left">
             <li class="nav-item">
                 <a class="nav-link" href="index.html">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Shop</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Shop <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contatti</a>
@@ -38,10 +39,8 @@
         </ul>
     </div>
 
-    <!--daje-->
-
     <!-- Logo al centro -->
-    <div class="navbar-brand" align="center"> <!-- mx-auto per centrare -->
+    <div class="navbar-brand" align="center">
         <img src="logo.png" alt="logo" class="logo-navbar">
     </div>
 
@@ -52,24 +51,15 @@
     </div>
 </nav>
 
-<!-- Dettagli del prodotto -->
-<div class="container my-5">
-    <div class="row">
-        <div class="col-md-6 text-center"> <!-- Colonna per l'immagine -->
-            <img src="" alt="Immagine del prodotto" class="img-fluid" id="product-image"> <!-- Immagine del prodotto -->
-        </div>
-        <div class="col-md-6" id="product-details"> <!-- Colonna per i dettagli del prodotto -->
-            <h2 id="product-name">Nome del Prodotto</h2> <!-- Nome del prodotto -->
-            <p class="lead" id="product-description">Descrizione del prodotto...</p> <!-- Descrizione dettagliata -->
-            <h4 id="product-price">€ 49,99</h4> <!-- Prezzo del prodotto -->
-            <button class="btn btn-dark">Aggiungi al Carrello</button> <!-- Pulsante per l'acquisto -->
-        </div>
+<!-- Prodotti -->
+    <h1 class="text-center mb-4">Nostri Prodotti</h1>
+        <div class="row" id="product-list">
+            <!-- Qui verranno generati dinamicamente i prodotti -->
     </div>
-</div>
 
 <!-- Footer -->
-<footer class="text-light py-4"> <!-- Allinea il testo al centro -->
-    <div class="container text-center"> <!-- Centra il contenitore -->
+<footer class="text-light py-4">
+    <div class="container text-center">
         <div class="row">
             <div class="col-md-4">
                 <h4>BACK2BOUTIQUE</h4>
@@ -83,11 +73,11 @@
             </div>
             <div class="col-md-4">
                 <a href="HomePage.html">
-                    <img src="logo.png" alt="logo" class="img-fluid"> <!-- Centra il logo -->
+                    <img src="logo.png" alt="logo" class="img-fluid">
                 </a>
             </div>
             <div class="col-md-4">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d854.4595417063018!2d12.442448161943302!3d43.91698560712833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ceccdf0a8a919%3A0x952d6cf632b77893!2sVia%20delle%20Carrare%2C%20105%2C%20San%20Marino!5e0!3m2!1sit!2sit" width="400" height="200" style="border:0;"></iframe> <!-- Centra l'iframe -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d854.4595417063018!2d12.442448161943302!3d43.91698560712833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ceccdf0a8a919%3A0x952d6cf632b77893!2sVia%20delle%20Carrare%2C%20105%2C%20San%20Marino!5e0!3m2!1sit!2sit" width="400" height="200" style="border:0;"></iframe>
             </div>
         </div>
 
@@ -96,7 +86,6 @@
         </div>
     </div>
 </footer>
-
 
 <!-- Cart Popup -->
 <div id="cart-modal" class="modal" tabindex="-1" role="dialog">
@@ -118,44 +107,15 @@
     </div>
 </div>
 
+<!-- Bootstrap core JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="shop.js"></script>
+
 <script>
-    $(document).ready(function() {
-        // Ottieni l'ID del prodotto dalla query string (es. single-product.html?id=1234)
-        var productId = getParameterByName('id');
-
-        // Effettua una chiamata AJAX per ottenere i dettagli del prodotto specifico
-        $.ajax({
-            url: 'http://10.25.0.15/~s_rnztms05m06z130l/web-service/methods.php/' + productId,
-            method: 'GET',
-            dataType: 'json',
-            success: function(product) {
-                // Popola i dettagli del prodotto nella pagina
-                $('#product-name').text(product.nome);
-                $('#product-description').text(product.descrizione);
-                $('#product-price').text('€ ' + product.prezzo);
-                $('#product-image').attr('src', product.immagine);
-            },
-            error: function(xhr, status, error) {
-                console.error('Errore AJAX:', error);
-            }
-        });
-    });
-
     // Funzione per aprire il popup del carrello
     $('#cart-popup').on('click', function() {
         $('#cart-modal').modal('show');
     });
-
-    // Funzione per ottenere i parametri dalla query string
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, '\\$&');
-        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
 </script>
 
 </body>

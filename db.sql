@@ -40,7 +40,7 @@ CREATE TABLE PRODOTTI (
     peso FLOAT(6,2),
     descrizione VARCHAR(200),
     stock INTEGER(4),
-    immagine BLOB,
+    immagine VARCHAR(255),
     CONSTRAINT ChiavePrimaria PRIMARY KEY (id)
 );
 
@@ -61,3 +61,7 @@ CREATE TABLE FATTO_DI (
     FOREIGN KEY (id_carrello) REFERENCES CARRELLO(id),
     FOREIGN KEY (id_prodotto) REFERENCES PRODOTTI(id)
 );
+
+INSERT INTO PRODOTTI (id, nome, prezzo, peso, descrizione, stock, immagine)
+VALUES
+('1234', 'Felpa', 49.00, 306.00, 'Felpa nera in cotone 100%', 30, ''); 
