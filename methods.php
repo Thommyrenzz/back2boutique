@@ -40,23 +40,34 @@ $productId = isset($_SERVER['PATH_INFO']) ? trim($_SERVER['PATH_INFO'], '/') : n
 switch ($method) {
     case 'GET':
         if (empty($productId)) {
-            // Se non viene fornito un ID prodotto, restituisci un errore
-            http_response_code(400); // Richiesta non valida
-            echo json_encode(['error' => 'È necessario fornire un ID prodotto']);
-        } else {
-            // Se viene fornito un ID prodotto, cerca il prodotto nel database
-            $query = sprintf("SELECT * FROM PRODOTTI WHERE id = '%s'", $conn->real_escape_string($productId));
+            // Se non c'è un ID risorsa, restituisci tutti i clienti
+            $query = "SELECT * FROM PRODOTTI";
             $result = $conn->query($query);
-    
+
             if ($result) {
-                // Se il prodotto viene trovato, restituisci i dettagli del prodotto come JSON
-                $productData = $result->fetch_assoc();
-                echo json_encode($productData);
+                $lista = [];
+                while ($row = $result->fetch_assoc()) {
+                    $lista[] = $row;
+                }
+
+                echo json_encode($lista); // Restituisci i dati come JSON
                 http_response_code(200); // Successo
             } else {
-                // Se il prodotto non viene trovato, restituisci un errore
-                http_response_code(404); // Non trovato
-                echo json_encode(['error' => 'Prodotto non trovato']);
+                http_response_code(500); // Errore sul server
+                echo json_encode(['errore' => 'Errore nell\'esecuzione della query']);
+            }
+        } else {
+            // Se c'è un ID risorsa, cerca un cliente specifico
+            $query = sprintf("SELECT * FROM PRODOTTI WHERE id = '%s'", $conn->real_escape_string($productId));
+            $result = $conn->query($query);
+
+            if ($result) {
+                $dati = $result->fetch_assoc();
+                echo json_encode($dati); // Restituisci il singolo cliente come JSON
+                http_response_code(200); // Successo
+            } else {
+                http_response_code(500); // Errore sul server
+                echo json_encode(['errore' => 'Cliente non trovato']);
             }
         }
         break;

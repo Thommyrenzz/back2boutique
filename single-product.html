@@ -27,10 +27,10 @@
     <div class="collapse navbar-collapse" id="navbarNav" align="center">
         <ul class="navbar-nav justify-content-left"> <!-- w-100 per coprire tutta la larghezza -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="home.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Shop</a>
+                <a class="nav-link" href="shop.html">Shop</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contatti</a>
@@ -52,20 +52,21 @@
     </div>
 </nav>
 
+<br>
+<br>
+<br>
+
 <!-- Dettagli del prodotto -->
-<div class="container my-5">
-    <div class="row">
-        <div class="col-md-6 text-center"> <!-- Colonna per l'immagine -->
-            <img src="" alt="Immagine del prodotto" class="img-fluid" id="product-image"> <!-- Immagine del prodotto -->
-        </div>
-        <div class="col-md-6" id="product-details"> <!-- Colonna per i dettagli del prodotto -->
-            <h2 id="product-name">Nome del Prodotto</h2> <!-- Nome del prodotto -->
-            <p class="lead" id="product-description">Descrizione del prodotto...</p> <!-- Descrizione dettagliata -->
-            <h4 id="product-price">€ 49,99</h4> <!-- Prezzo del prodotto -->
-            <button class="btn btn-dark">Aggiungi al Carrello</button> <!-- Pulsante per l'acquisto -->
-        </div>
+<div class="container" id="product">
+    <br>
+    <div class="row" id="single-product">
+        <!-- Qui verranno generati dinamicamente i prodotti -->
     </div>
 </div>
+
+<br>
+<br>
+<br>
 
 <!-- Footer -->
 <footer class="text-light py-4"> <!-- Allinea il testo al centro -->
@@ -117,45 +118,12 @@
         </div>
     </div>
 </div>
-
+<script src="single-product.js"></script>
 <script>
-    $(document).ready(function() {
-        // Ottieni l'ID del prodotto dalla query string (es. single-product.html?id=1234)
-        var productId = getParameterByName('id');
-
-        // Effettua una chiamata AJAX per ottenere i dettagli del prodotto specifico
-        $.ajax({
-            url: 'http://10.25.0.15/~s_rnztms05m06z130l/web-service/methods.php/' + productId,
-            method: 'GET',
-            dataType: 'json',
-            success: function(product) {
-                // Popola i dettagli del prodotto nella pagina
-                $('#product-name').text(product.nome);
-                $('#product-description').text(product.descrizione);
-                $('#product-price').text('€ ' + product.prezzo);
-                $('#product-image').attr('src', product.immagine);
-            },
-            error: function(xhr, status, error) {
-                console.error('Errore AJAX:', error);
-            }
-        });
-    });
-
-    // Funzione per aprire il popup del carrello
+// Funzione per aprire il popup del carrello
     $('#cart-popup').on('click', function() {
         $('#cart-modal').modal('show');
     });
-
-    // Funzione per ottenere i parametri dalla query string
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, '\\$&');
-        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
 </script>
 
 </body>

@@ -56,7 +56,7 @@ CREATE TABLE CATEGORIA (
 CREATE TABLE FATTO_DI (
     id_carrello VARCHAR(9) NOT NULL,
     id_prodotto VARCHAR(9) NOT NULL,
-    data_ora DATE,
+    data_ora DATE,_prodotto.jpeg
     CONSTRAINT ChiavePrimaria PRIMARY KEY (id_carrello, id_prodotto, data_ora),
     FOREIGN KEY (id_carrello) REFERENCES CARRELLO(id),
     FOREIGN KEY (id_prodotto) REFERENCES PRODOTTI(id)
@@ -64,4 +64,7 @@ CREATE TABLE FATTO_DI (
 
 INSERT INTO PRODOTTI (id, nome, prezzo, peso, descrizione, stock, immagine)
 VALUES
-('1234', 'Felpa', 49.00, 306.00, 'Felpa nera in cotone 100%', 30, ''); 
+('1234', 'Felpa', 49.00, 306.00, 'Felpa nera in cotone 100%', 30, 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_2/felpa_prodotto.jpeg');
+UPDATE PRODOTTI
+SET immagine = 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_2/felpa_prodotto.jpeg'
+WHERE id = '1234'; 

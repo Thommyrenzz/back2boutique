@@ -153,3 +153,18 @@ footer .text-center {
 .text-center {
     color: lightgray; /* Colore del testo al centro */
 }
+
+.dropdown-menu {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: #000000;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #f8f9fa;
+    color: #000000;
+}
