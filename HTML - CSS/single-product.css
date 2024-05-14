@@ -1,0 +1,170 @@
+/* Stile generale del corpo */
+body {
+    background-color: #000000;
+    color: #000000; /* colore primario del testo */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    border-bottom: 1px solid #0000;
+    background-color: #000000;
+}
+
+.navbar-collapse {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 1%;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.logo-navbar {
+    width: 40%; /* Dimensione del logo */
+}
+
+.nav-link {
+    color: black;
+}
+
+.nav-link:hover {
+    color: white;
+    background-color: #0000; /* Effetto hover */
+}
+
+.navbar-toggler {
+    border: none; /* Rimuove il bordo del toggle */
+}
+
+.navbar-nav {
+    padding: 1%; /* Spaziatura tra gli elementi della navbar */
+    padding-left: 3%;
+}
+
+/* Dettagli del prodotto */
+#text{
+    color: #d3d3d3;
+}
+.product-container {
+    background-color: #1a1a1a; /* Sfondo scuro per la sezione del prodotto */
+    border-radius: 10px; /* Angoli arrotondati */
+    padding: 20px; /* Spaziatura interna */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+}
+
+.product-container img {
+    max-width: 100%; /* Dimensione massima delle immagini */
+    border-radius: 10px; /* Arrotonda gli angoli delle immagini */
+}
+
+.product-container h2 {
+    color: white; /* Colore del titolo */
+}
+
+.product-container p {
+    color: lightgray; /* Colore dei paragrafi */
+}
+
+.product-container .product-price {
+    color: white; /* Colore del prezzo */
+}
+
+.product-container .btn {
+    background-color: #444; /* Colore del pulsante */
+    color: white; /* Colore del testo del pulsante */
+}
+
+.product-container .btn:hover {
+    background-color: #333; /* Effetto hover */
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+}
+
+footer h4 {
+    color: #ffffff; /* colore del testo del footer */
+}
+
+footer a {
+    color: #bdbdbd;
+}
+
+footer a:hover {
+    color: white; /* effetto hover sui link del footer */
+}
+
+footer .container {
+    padding-top: 20px;
+}
+
+footer ul {
+    list-style-type: none; /* rimuovere i punti elenco */
+    padding: 0;
+}
+
+footer .navbar-brand img {
+    max-width: 100px; /* dimensione massima del logo nel footer */
+}
+
+footer .text-center {
+    padding: 10px; /* spaziatura */
+}
+
+#logo_footer {
+    width: 85%
+}
+
+/* Carrello Popup */
+.modal-content {
+    border-radius: 10px; /* arrotondare il bordo del popup */
+}
+
+.modal-header {
+    background-color: #000000;
+    color: white;
+}
+
+.modal-header .close {
+    color: white; /* colore del bottone di chiusura */
+}
+
+.modal-footer {
+    background-color: #f5f5f5; /* colore di sfondo del footer del popup */
+}
+
+.modal-footer .btn {
+    background-color: #000000; 
+    color: white; 
+}
+
+.modal-footer .btn:hover {
+    background-color: #000000;
+}
+
+
+/* Stile dell'iframe Google Maps */
+.ui-content iframe {
+    border: none; /* Rimuove il bordo dell'iframe */
+}
+
+/* Stile del copyright */
+.text-center {
+    color: lightgray; /* Colore del testo al centro */
+}
+
+.dropdown-menu {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: #000000;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #f8f9fa;
+    color: #000000;
+}
