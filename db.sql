@@ -6,7 +6,7 @@ Categoria(id, tipo, descrizione)
 Fatto_di(id_carrello,id_prodotto, data_ora)
 
 CREATE TABLE CLIENTE (
-    id VARCHAR(9) NOT NULL,
+    id INT AUTO_INCREMENT NOT NULL
     username VARCHAR(16) NOT NULL,    
     psw VARCHAR(30) NOT NULL,
     nome VARCHAR(30),
@@ -15,8 +15,7 @@ CREATE TABLE CLIENTE (
 );
 
 CREATE TABLE CARRELLO (
-    id VARCHAR(9) NOT NULL,
-    costo_totale VARCHAR(16),    
+    id INTEGER AUTO_INCREMENT,
     id_cli VARCHAR(9) NOT NULL,
     CONSTRAINT ChiavePrimaria PRIMARY KEY (id),
     FOREIGN KEY (id_cli) REFERENCES CLIENTE(id)
@@ -28,7 +27,7 @@ CREATE TABLE ORDINE (
     cap INTEGER(5),
     citta VARCHAR(15),
     stato VARCHAR(15),
-    id_car VARCHAR(9) NOT NULL,
+    id_car INTEGER AUTO_INCREMENT, 
     CONSTRAINT ChiavePrimaria PRIMARY KEY (id),
     FOREIGN KEY (id_car) REFERENCES CARRELLO(id)
 );
@@ -54,9 +53,9 @@ CREATE TABLE CATEGORIA (
 );
 
 CREATE TABLE FATTO_DI (
-    id_carrello VARCHAR(9) NOT NULL,
+    id_carrello INTEGER,
     id_prodotto VARCHAR(9) NOT NULL,
-    data_ora DATE,_prodotto.jpeg
+    data_ora DATE,
     CONSTRAINT ChiavePrimaria PRIMARY KEY (id_carrello, id_prodotto, data_ora),
     FOREIGN KEY (id_carrello) REFERENCES CARRELLO(id),
     FOREIGN KEY (id_prodotto) REFERENCES PRODOTTI(id)
@@ -64,7 +63,10 @@ CREATE TABLE FATTO_DI (
 
 INSERT INTO PRODOTTI (id, nome, prezzo, peso, descrizione, stock, immagine)
 VALUES
-('1234', 'Felpa', 49.00, 306.00, 'Felpa nera in cotone 100%', 30, 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_2/felpa_prodotto.jpeg');
+('1234', 'Felpa', 49.00, 306.00, 'Felpa nera in cotone 100%', 30, 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_3/image/felpa_prodotto.jpeg');
 UPDATE PRODOTTI
 SET immagine = 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_3/image/felpa_prodotto.jpeg'
 WHERE id = '1234'; 
+
+INSERT INTO CARRELLO (id, id_cli) VALUES ('34567');
+IN
