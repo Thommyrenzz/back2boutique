@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $.ajax({
-        //url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_3/wb/methods.php',
-        url: 'http://localhost:4000/methods.php',
+        url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_4/wb/methods.php',
+        //url: 'http://localhost:4000/methods.php',
         method: 'GET',
         dataType: 'json',
         success: function(data, status, xhr) {

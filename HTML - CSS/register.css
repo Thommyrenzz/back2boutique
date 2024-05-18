@@ -1,11 +1,14 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-image: url('../image/bg-login-register.jpg');
+    background-size: cover; /* Adatta l'immagine alle dimensioni della finestra */
+    background-position: center; /* Centra l'immagine */
+    background-repeat: no-repeat; /* Evita che l'immagine si ripeta */
 }
 .container {
     background-color: #ffffff;
@@ -25,7 +28,7 @@ label {
 input[type="text"],
 input[type="password"],
 input[type="submit"] {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;

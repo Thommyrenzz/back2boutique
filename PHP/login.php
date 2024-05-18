@@ -16,18 +16,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 //Variabili per la connessione al database
-/*$servername = '10.25.0.14';
-$username = '5crenzini';
-$password = '5crenzini';
-$dbname = '5crenzini_back2boutique'; //scuola*/
+$servername = '10.25.0.14';
+$dbusername = '5crenzini';
+$dbpassword = '5crenzini';
+$dbname = '5crenzini_back2boutique'; //scuola
 
-$hostname = 'localhost';
+/*$hostname = 'localhost';
 $username = 'root';
 $password = 'Thommyrenz40';
-$dbname = '5crenzini_back2boutique'; //casa
+$dbname = '5crenzini_back2boutique'; //casa*/
 
 // Connessione al database
-$conn = new mysqli($hostname, $dbusername, $dbpassword, $dbname);
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 if ($conn->connect_error) {
     http_response_code(500); // Errore sul server
     echo json_encode(['errore' => 'Connessione al database non riuscita']);
@@ -48,7 +48,7 @@ $password = htmlspecialchars($data['password'] ?? '');
 
 // Verifica che i dati necessari siano presenti
 if (!empty($username) && !empty($password)) {
-    // Esegui la query per verificare le credenziali dell'utente
+    // Controlla se l'username e la password sono corretti
     $query = "SELECT * FROM CLIENTE WHERE username = ? AND psw = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("ss", $username, $password);
@@ -56,11 +56,17 @@ if (!empty($username) && !empty($password)) {
     $result = $stmt->get_result();
     
     if ($result->num_rows > 0) {
-        http_response_code(200); // OK
-        echo json_encode(['messaggio' => 'Accesso consentito']);
+        $user = $result->fetch_assoc();
+        if ($user['username'] === 'admin') {
+            http_response_code(200);
+            echo json_encode(['messaggio' => 'Login effettuato con successo', 'admin' => true]);
+        } else {
+            http_response_code(200);
+            echo json_encode(['messaggio' => 'Login effettuato con successo', 'admin' => false]);
+        }
     } else {
         http_response_code(401); // Non autorizzato
-        echo json_encode(['errore' => 'Credenziali non valide']);
+        echo json_encode(['errore' => 'Username o password errati']);
     }
 } else {
     http_response_code(400); // Richiesta errata

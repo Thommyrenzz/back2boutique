@@ -16,17 +16,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 //Variabili per la connessione al database
-/*$servername = '10.25.0.14';
-$username = '5crenzini';
-$password = '5crenzini';
-$dbname = '5crenzini_back2boutique'; //scuola*/
+$servername = '10.25.0.14';
+$dbusername = '5crenzini';
+$dbpassword = '5crenzini';
+$dbname = '5crenzini_back2boutique'; //scuola
 
-$hostname = 'localhost';
+/*$hostname = 'localhost';
 $username = 'root';
 $password = 'Thommyrenz40';
-$dbname = '5crenzini_back2boutique'; //casa
+$dbname = '5crenzini_back2boutique'; //casa*/
 // Connessione al database
-$conn = new mysqli($hostname, $dbusername, $dbpassword, $dbname);
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 if ($conn->connect_error) {
     http_response_code(500); // Errore sul server
     echo json_encode(['errore' => 'Connessione al database non riuscita']);

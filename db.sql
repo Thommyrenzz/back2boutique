@@ -5,6 +5,9 @@ Prodotti(id, nome, prezzo, peso, descrizione, stock, immagine)
 Categoria(id, tipo, descrizione)
 Fatto_di(id_carrello,id_prodotto, data_ora)
 
+
+CREATE DATABASE 5crenzini_back2boutique;
+USE 5crenzini_back2boutique
 CREATE TABLE CLIENTE (
     id INT AUTO_INCREMENT NOT NULL,
     username VARCHAR(16) NOT NULL,    
@@ -63,9 +66,21 @@ CREATE TABLE FATTO_DI (
 
 INSERT INTO PRODOTTI (id, nome, prezzo, peso, descrizione, stock, immagine)
 VALUES
-('1234', 'Felpa', 49.00, 306.00, 'Felpa nera in cotone 100%', 30, 'file:///C:/Users/Thomas/Desktop/Cartelle/Programmazione/back2boutique/image/felpa_prodotto.jpeg');
+('1234', 'Felpa', 49.00, 306.00, 'Felpa nera in cotone 100%', 30, 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_3/image/felpa_prodotto.jpeg');
+
+INSERT INTO CATEGORIA (id, tipo, descrizione, id_prod)
+VALUES
+('1', 'Abbigliamento', 'Trova il migliore abbigliamento più stiloso di tutti', '1234');
+
+
+INSERT INTO CLIENTE (username, psw, nome, cognome) VALUES ('admin', '1234', 'admin', 'admin');
+
 UPDATE PRODOTTI
 SET immagine = 'file:///C:/Users/Thomas/Desktop/Cartelle/Programmazione/back2boutique/image/felpa_prodotto.jpeg'
 WHERE id = '1234'; 
 
-DELETE FROM CLIENTE WHERE nome=test;
+DELETE FROM CLIENTE WHERE id IN (1);
+
+--http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_3/image/felpa_prodotto.jpeg
+
+--file:///C:/Users/Thomas/Desktop/Cartelle/Programmazione/back2boutique/image/felpa_prodotto.jpeg

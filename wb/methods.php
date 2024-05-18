@@ -12,15 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 //Variabili per la connessione al database
-/*$servername = '10.25.0.14';
+$servername = '10.25.0.14';
 $username = '5crenzini';
 $password = '5crenzini';
-$dbname = '5crenzini_back2boutique'; //scuola*/
+$dbname = '5crenzini_back2boutique'; //scuola
 
-$hostname = 'localhost';
+/*$hostname = 'localhost';
 $username = 'root';
 $password = 'Thommyrenz40';
-$dbname = '5crenzini_back2boutique'; //casa
+$dbname = '5crenzini_back2boutique'; //casa*/
 
 // Connessione al database
 $conn = new mysqli($servername, $username, $password, $dbname);

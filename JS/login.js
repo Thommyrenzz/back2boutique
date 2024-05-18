@@ -9,24 +9,34 @@ $("#loginForm").submit(function(event) {
     
     // Effettua una richiesta AJAX per il login
     $.ajax({
-        //url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_3/PHP/login.php', //scuola
-        url: 'http://localhost:3000/login.php', //casa
+        url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_4/PHP/login.php', //scuola
+        //url: 'http://localhost:3000/login.php', //casa
         type: 'POST',
-        contentType: 'application/json', // Specifica che i dati inviati sono JSON
-        data: JSON.stringify(formData), // Converte i dati in una stringa JSON
-        dataType: 'json', // Specifica che ci si aspetta una risposta JSON
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
+        dataType: 'json',
         success: function(response) {
             // Verifica se il login è avvenuto con successo
-            if (response && response.messaggio === "Accesso consentito") {
+            if (response && response.messaggio) {
                 alert(response.messaggio);
-                window.location.href = "single-product.html"; // Reindirizza alla dashboard dopo il login
+                if (response.admin) {
+                    window.location.href = "admin.html"; // Reindirizza alla pagina admin
+                } else {
+                    window.location.href = "user.html"; // Reindirizza alla pagina utente
+                }
             } else {
-                alert("Credenziali non valide.");
+                alert("Errore durante il login.");
             }
         },
         error: function(xhr, status, error) {
-            console.error('Errore AJAX:', error);
-            alert('Errore nella chiamata AJAX: ' + error);
+            try {
+                var errorResponse = JSON.parse(xhr.responseText);
+                alert('Errore: ' + errorResponse.errore);
+            } catch (e) {
+                console.error('Errore AJAX:', error);
+                alert('Errore nella chiamata AJAX: ' + error);
+            }
         }
     });
 });
+    
