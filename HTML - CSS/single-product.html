@@ -11,13 +11,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <link rel="stylesheet" href="single-product.css">
     <title>Dettaglio Prodotto - Back2Boutique</title>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark justify-content-between"> <!-- Navbar tra elementi -->
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
     <!-- Menu Burger -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,7 +26,7 @@
 
     <!-- Menu collassabile -->
     <div class="collapse navbar-collapse" id="navbarNav" align="center">
-        <ul class="navbar-nav justify-content-left"> <!-- w-100 per coprire tutta la larghezza -->
+        <ul class="navbar-nav justify-content-left">
             <li class="nav-item">
                 <a class="nav-link" href="index.html">Home</a>
             </li>
@@ -38,23 +39,17 @@
         </ul>
     </div>
 
-    <!--daje-->
-
     <!-- Logo al centro -->
-    <div class="navbar-brand" align="center"> <!-- mx-auto per centrare -->
+    <div class="navbar-brand" align="center">
         <img src="../image/logo.png" alt="logo" class="logo-navbar">
     </div>
 
     <!-- Icone Profilo e Carrello a destra -->
-    <div class="navbar-nav">
-        <a class="nav-link" href="profile.html"><i class="fas fa-user"></i></a>
-        <a class="nav-link" id="cart-popup"><i class="fas fa-shopping-cart"></i></a>
+    <div class="navbar-nav ml-auto"> <!-- Utilizzo della classe ml-auto per posizionare a destra -->
+        <a class="nav-link" href="login.html"><i class="fas fa-user"></i></a>
+        <a class="nav-link" id="cart-popup" data-toggle="modal" data-target="#cartPopup"><i class="fas fa-shopping-cart"></i></a>
     </div>
 </nav>
-
-<br>
-<br>
-<br>
 
 <!-- Dettagli del prodotto -->
 <div class="container" id="product">
@@ -64,13 +59,9 @@
     </div>
 </div>
 
-<br>
-<br>
-<br>
-
 <!-- Footer -->
-<footer class="text-light py-4"> <!-- Allinea il testo al centro -->
-    <div class="container text-center"> <!-- Centra il contenitore -->
+<footer class="text-light py-4">
+    <div class="container text-center">
         <div class="row">
             <div class="col-md-4">
                 <h4>BACK2BOUTIQUE</h4>
@@ -84,47 +75,44 @@
             </div>
             <div class="col-md-4">
                 <a href="index.html">
-                    <img src="../image/logo.png" alt="logo" class="img-fluid"> <!-- Centra il logo -->
+                    <img src="../image/logo.png" alt="logo" class="img-fluid">
                 </a>
             </div>
             <div class="col-md-4">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d854.4595417063018!2d12.442448161943302!3d43.91698560712833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ceccdf0a8a919%3A0x952d6cf632b77893!2sVia%20delle%20Carrare%2C%20105%2C%20San%20Marino!5e0!3m2!1sit!2sit" width="400" height="200" style="border:0;"></iframe> <!-- Centra l'iframe -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d854.4595417063018!2d12.442448161943302!3d43.91698560712833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ceccdf0a8a919%3A0x952d6cf632b77893!2sVia%20delle%20Carrare%2C%20105%2C%20San%20Marino!5e0!3m2!1sit!2sit" width="200" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
-
-        <div class="text-center mt-3">
-            &copy; Back2Boutique. Tutti i diritti riservati. Realizzato da Thomas Renzini.
-        </div>
+        <hr class="bg-light">
+        <p class="text-center mb-0">&copy; 2023 Back2Boutique. Tutti i diritti riservati.</p>
     </div>
 </footer>
 
-
-<!-- Cart Popup -->
-<div id="cart-modal" class="modal" tabindex="-1" role="dialog">
+<!-- Popup del Carrello -->
+<div class="modal fade" id="cartPopup" tabindex="-1" role="dialog" aria-labelledby="cartPopupLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Carrello</h5>
+                <h5 class="modal-title" id="cartPopupLabel">Carrello</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <p>Il tuo carrello è vuoto.</p>
+            <div class="modal-body" id="cartItems">
+                <!-- Qui verranno inseriti i prodotti del carrello -->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                <a href="checkout.html" class="btn btn-dark">Procedi al Checkout</a>
             </div>
         </div>
     </div>
 </div>
-<script src="../JS/single-product.js"></script>
-<script>
-// Funzione per aprire il popup del carrello
-    $('#cart-popup').on('click', function() {
-        $('#cart-modal').modal('show');
-    });
-</script>
 
+<!-- Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="../JS/single-product.js"></script>
+<script src="../JS/cart.js"></script>
 </body>
 </html>

@@ -20,7 +20,7 @@ $(document).ready(function() {
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <a href="single-product.html?id=${product.id}" class="btn btn-sm btn-outline-dark" style="color: #000000; border-color: #000000;">Dettagli</a>
-                                        <button type="button" class="btn btn-sm btn-outline-dark" style="color: #000000; border-color: #000000;">Aggiungi al Carrello</button>
+                                        <button type="button" class="btn btn-sm btn-outline-dark" style="color: #000000; border-color: #000000;" data-id="${product.id}" data-name="${product.nome}" data-price="${product.prezzo}>Aggiungi al Carrello</button>
                                     </div>
                                     <small class="text-muted" style="color: #757575;">€${product.prezzo}</small>
                                 </div>

@@ -59,6 +59,7 @@ CREATE TABLE FATTO_DI (
     id_carrello INT NOT NULL,
     id_prodotto VARCHAR(9) NOT NULL,
     data_ora DATETIME NOT NULL,
+    taglia VARCHAR(3),
     CONSTRAINT ChiavePrimariaFattoDi PRIMARY KEY (id_carrello, id_prodotto, data_ora),
     FOREIGN KEY (id_carrello) REFERENCES CARRELLO(id),
     FOREIGN KEY (id_prodotto) REFERENCES PRODOTTI(id)

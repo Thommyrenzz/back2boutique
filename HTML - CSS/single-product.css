@@ -1,7 +1,7 @@
 /* Stile generale del corpo */
 body {
     background-color: #000000;
-    color: #000000; /* colore primario del testo */
+    color: #000000;
     font-family: 'Arial', sans-serif;
 }
 
@@ -11,15 +11,8 @@ body {
     background-color: #000000;
 }
 
-.navbar-collapse {
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 1%;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
 .logo-navbar {
-    width: 40%; /* Dimensione del logo */
+    width: 40%;
 }
 
 .nav-link {
@@ -28,53 +21,45 @@ body {
 
 .nav-link:hover {
     color: white;
-    background-color: #0000; /* Effetto hover */
-}
-
-.navbar-toggler {
-    border: none; /* Rimuove il bordo del toggle */
-}
-
-.navbar-nav {
-    padding: 1%; /* Spaziatura tra gli elementi della navbar */
-    padding-left: 3%;
+    background-color: #0000;
 }
 
 /* Dettagli del prodotto */
-#text{
+#text {
     color: #d3d3d3;
 }
+
 .product-container {
-    background-color: #1a1a1a; /* Sfondo scuro per la sezione del prodotto */
-    border-radius: 10px; /* Angoli arrotondati */
-    padding: 20px; /* Spaziatura interna */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .product-container img {
-    max-width: 100%; /* Dimensione massima delle immagini */
-    border-radius: 10px; /* Arrotonda gli angoli delle immagini */
+    max-width: 100%;
+    border-radius: 10px;
 }
 
 .product-container h2 {
-    color: white; /* Colore del titolo */
+    color: white;
 }
 
 .product-container p {
-    color: lightgray; /* Colore dei paragrafi */
+    color: lightgray;
 }
 
 .product-container .product-price {
-    color: white; /* Colore del prezzo */
+    color: white;
 }
 
 .product-container .btn {
-    background-color: #444; /* Colore del pulsante */
-    color: white; /* Colore del testo del pulsante */
+    background-color: #444;
+    color: white;
 }
 
 .product-container .btn:hover {
-    background-color: #333; /* Effetto hover */
+    background-color: #333;
 }
 
 /* Footer */
@@ -84,7 +69,7 @@ footer {
 }
 
 footer h4 {
-    color: #ffffff; /* colore del testo del footer */
+    color: #ffffff;
 }
 
 footer a {
@@ -92,7 +77,7 @@ footer a {
 }
 
 footer a:hover {
-    color: white; /* effetto hover sui link del footer */
+    color: white;
 }
 
 footer .container {
@@ -100,16 +85,16 @@ footer .container {
 }
 
 footer ul {
-    list-style-type: none; /* rimuovere i punti elenco */
+    list-style-type: none;
     padding: 0;
 }
 
 footer .navbar-brand img {
-    max-width: 100px; /* dimensione massima del logo nel footer */
+    max-width: 100px;
 }
 
 footer .text-center {
-    padding: 10px; /* spaziatura */
+    padding: 10px;
 }
 
 #logo_footer {
@@ -144,27 +129,3 @@ footer .text-center {
 }
 
 
-/* Stile dell'iframe Google Maps */
-.ui-content iframe {
-    border: none; /* Rimuove il bordo dell'iframe */
-}
-
-/* Stile del copyright */
-.text-center {
-    color: lightgray; /* Colore del testo al centro */
-}
-
-.dropdown-menu {
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown-item {
-    color: #000000;
-}
-
-.dropdown-item:hover,
-.dropdown-item:focus {
-    background-color: #f8f9fa;
-    color: #000000;
-}
