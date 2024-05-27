@@ -9,7 +9,7 @@ $("#loginForm").submit(function(event) {
     
     // Effettua una richiesta AJAX per il login
     $.ajax({
-        url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_4/PHP/login.php', //scuola
+        url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_5/PHP/login.php', //scuola
         //url: 'http://localhost:3000/login.php', //casa
         type: 'POST',
         contentType: 'application/json',
@@ -22,7 +22,7 @@ $("#loginForm").submit(function(event) {
                 if (response.admin) {
                     window.location.href = "admin.html"; // Reindirizza alla pagina admin
                 } else {
-                    window.location.href = "user.html"; // Reindirizza alla pagina utente
+                    window.location.href = "dashboardcliente.html"; // Reindirizza alla pagina utente
                 }
             } else {
                 alert("Errore durante il login.");

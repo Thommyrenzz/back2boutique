@@ -8,6 +8,7 @@ Fatto_di(id_carrello,id_prodotto, data_ora)
 
 CREATE DATABASE 5crenzini_back2boutique;
 USE 5crenzini_back2boutique
+
 CREATE TABLE CLIENTE (
     id INT AUTO_INCREMENT NOT NULL,
     username VARCHAR(16) NOT NULL,    
@@ -24,15 +25,15 @@ CREATE TABLE CARRELLO (
     FOREIGN KEY (id_cli) REFERENCES CLIENTE(id)
 );
 
-CREATE TABLE ORDINE (
+CREATE TABLE SPEDIZIONE (
     id INT AUTO_INCREMENT NOT NULL,
     tell VARCHAR(15),
     cap VARCHAR(10),
     citta VARCHAR(50),
     stato VARCHAR(50),
-    id_car INT NOT NULL,
+    id_cli INT NOT NULL,
     CONSTRAINT ChiavePrimariaOrdine PRIMARY KEY (id),
-    FOREIGN KEY (id_car) REFERENCES CARRELLO(id)
+    FOREIGN KEY (id_cli) REFERENCES CLIENTE(id)
 );
 
 CREATE TABLE PRODOTTI (
@@ -46,15 +47,6 @@ CREATE TABLE PRODOTTI (
     CONSTRAINT ChiavePrimaria PRIMARY KEY (id)
 );
 
-CREATE TABLE CATEGORIA (
-    id VARCHAR(9) NOT NULL,
-    tipo VARCHAR(15),    
-    descrizione VARCHAR(200),
-    id_prod VARCHAR(9) NOT NULL,
-    CONSTRAINT ChiavePrimaria PRIMARY KEY (id),
-    FOREIGN KEY (id_prod) REFERENCES PRODOTTI(id)
-);
-
 CREATE TABLE FATTO_DI (
     id_carrello INT NOT NULL,
     id_prodotto VARCHAR(9) NOT NULL,
@@ -63,6 +55,17 @@ CREATE TABLE FATTO_DI (
     CONSTRAINT ChiavePrimariaFattoDi PRIMARY KEY (id_carrello, id_prodotto, data_ora),
     FOREIGN KEY (id_carrello) REFERENCES CARRELLO(id),
     FOREIGN KEY (id_prodotto) REFERENCES PRODOTTI(id)
+);
+
+CREATE TABLE ORDINE (
+    id INT AUTO_INCREMENT NOT NULL,
+    id_carrello INT NOT NULL,
+    id_cli INT NOT NULL,
+    data_ora DATETIME NOT NULL,
+    costo_totale FLOAT(6,2),
+    CONSTRAINT ChiavePrimariaOrdine PRIMARY KEY (id),
+    FOREIGN KEY (id_cli) REFERENCES CLIENTE(id),
+    FOREIGN KEY (id_carrello) REFERENCES CARRELLO(id)
 );
 
 INSERT INTO PRODOTTI (id, nome, prezzo, peso, descrizione, stock, immagine)
@@ -85,3 +88,24 @@ DELETE FROM CLIENTE WHERE id IN (1);
 --http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_3/image/felpa_prodotto.jpeg
 
 --file:///C:/Users/Thomas/Desktop/Cartelle/Programmazione/back2boutique/image/felpa_prodotto.jpeg
+
+CREATE TABLE STORICO_ORDINI(
+    id INT AUTO_INCREMENT NOT NULL,
+    id_carrello INT NOT NULL,
+    id_cli INT NOT NULL,
+    data_ora DATETIME NOT NULL,
+    costo_totale FLOAT(6,2),
+    CONSTRAINT ChiavePrimaria PRIMARY KEY (id)
+    FOREIGN KEY (id_cli) REFERENCES CLIENTE(id),
+    FOREIGN KEY (id_carrello) REFERENCES CARRELLO(id)
+);
+
+delimiter  |
+CREATE TRIGGER storico_ordini
+BEFORE UPDATE ON ORDINE
+FOR EACH ROW 
+BEGIN
+    INSERT INTO STORICO_PREZZI(id_carrello, id_cli, data_ora, costo_totale) 
+    VALUES (OLD.id_carrello, OLD.id_cli, OLD.data_ora, OLD.costa_totale);
+END;
+|

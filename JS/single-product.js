@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    var selectedSize = ""; // Variabile per memorizzare la taglia selezionata
+    var selectedSize = "N/A"; // Variabile per memorizzare la taglia selezionata, default "N/A"
 
     // Carica i dettagli del prodotto tramite AJAX
     $.ajax({
-        url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_4/wb/methods.php',
+        url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_5/wb/methods.php',
         method: 'GET',
         dataType: 'json',
         success: function(data, status, xhr) {
@@ -39,7 +39,6 @@ $(document).ready(function() {
                 // Gestisce il cambiamento dell'opzione selezionata
                 $("#sizeSelect").change(function() {
                     selectedSize = $(this).val(); // Salva la taglia selezionata nella variabile
-                    $("#sizeDropdown").text(selectedSize); // Aggiorna il testo del pulsante del menu a tendina
                 });
             } else {
                 console.error("Errore nel caricamento dei prodotti");
@@ -50,4 +49,43 @@ $(document).ready(function() {
             $('#product-list').html('Errore nella chiamata AJAX: ' + error);
         }
     });
+
+    // Gestione dell'aggiunta al carrello
+    $(document).on('click', '.add-to-cart-button', function() {
+        var productId = $(this).data('id');
+        var productName = $(this).data('name');
+        var productPrice = $(this).data('price');
+
+        // Aggiungi il prodotto al carrello (localStorage)
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ id: productId, name: productName, price: productPrice, size: selectedSize });
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Aggiorna il popup del carrello
+        updateCartPopup();
+    });
+
+    // Funzione per aggiornare il contenuto del popup del carrello
+    function updateCartPopup() {
+        var cartItemsContainer = $('#cartItems');
+        cartItemsContainer.empty(); // Pulisci il contenuto precedente
+
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        if (cart.length == 0) {
+            cartItemsContainer.append('<p>Il tuo carrello è vuoto.</p>');
+        } else {
+            cart.forEach(function(item) {
+                var cartItem = `
+                    <div class="cart-item">
+                        <p>${item.name} - Taglia: ${item.size}</p>
+                        <p>Prezzo: €${item.price}</p>
+                    </div>`;
+                cartItemsContainer.append(cartItem);
+            });
+        }
+    }
+
+    // Carica il carrello all'inizializzazione della pagina
+    updateCartPopup();
 });

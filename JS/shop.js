@@ -1,7 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_4/wb/methods.php',
-        //url: 'http://localhost:4000/methods.php',
+        url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_5/wb/methods.php',
         method: 'GET',
         dataType: 'json',
         success: function(data, status, xhr) {
@@ -20,7 +19,6 @@ $(document).ready(function() {
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <a href="single-product.html?id=${product.id}" class="btn btn-sm btn-outline-dark" style="color: #000000; border-color: #000000;">Dettagli</a>
-                                        <button type="button" class="btn btn-sm btn-outline-dark" style="color: #000000; border-color: #000000;" data-id="${product.id}" data-name="${product.nome}" data-price="${product.prezzo}>Aggiungi al Carrello</button>
                                     </div>
                                     <small class="text-muted" style="color: #757575;">€${product.prezzo}</small>
                                 </div>

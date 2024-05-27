@@ -135,3 +135,7 @@ footer .text-center {
 .text-center {
     color: lightgray; /* Colore del testo al centro */
 }
+
+.cart-item p {
+    color: black;
+}

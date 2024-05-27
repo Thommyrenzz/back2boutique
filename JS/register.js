@@ -11,7 +11,7 @@ $("#registerForm").submit(function(event) {
 
     // Effettua una richiesta AJAX per registrare l'utente
     $.ajax({
-        url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_4/PHP/register.php', //scuola
+        url: 'http://10.25.0.15/~s_rnztms05m06z130l/back2boutique_5/PHP/register.php', //scuola
         //url: 'http://localhost:8000/register.php',
         type: 'POST',
         contentType: 'application/json', // Specifica che i dati inviati sono JSON
