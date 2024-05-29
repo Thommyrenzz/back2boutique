@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Back2Boutique">
+    <meta name="author" content="Thomas Renzini">
+    <link rel="icon" type="image/png" href="../image/b2b.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="dashboardcliente.css">
+    <title>B2B</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-between"> <!-- Navbar tra elementi -->
+    <!-- Menu Burger -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu collassabile -->
+    <div class="collapse navbar-collapse" id="navbarNav" align="center">
+        <ul class="navbar-nav justify-content-left"> <!-- w-100 per coprire tutta la larghezza -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="shop.html">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contatti</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Logo al centro -->
+    <div class="navbar-brand" align="center"> <!-- mx-auto per centrare -->
+        <img src="../image/logo.png" alt="logo" class="logo-navbar">
+    </div>
+
+    <!-- Icone Profilo e Carrello a destra -->
+    <div class="navbar-nav">
+        <a class="nav-link" href="login.html"><i class="fas fa-user"></i></a>
+        <a class="nav-link" id="cart-popup"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+</nav>
+
+<!-- Carousel -->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block" src="../image/bg-user.png" alt="Contatti Background"> <!-- Modifica con la tua immagine -->
+        </div>
+    </div>
+</div>
+
+<!-- Contenuto principale -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-3 sidebar">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active">
+                    Informazioni personali
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">Storico ordini</a>
+            </div>
+        </div>
+        <!-- Contenuto -->
+        <div class="col-lg-9">
+            <div class="card mt-4">
+                <div class="card-body">
+                    <!-- Contenuto della dashboard -->
+                    <!-- Aggiungi qui il contenuto della dashboard -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Popup del Carrello -->
+<div class="modal fade" id="cartPopup" tabindex="-1" role="dialog" aria-labelledby="cartPopupLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartPopupLabel">Carrello</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="cartItems">
+                <!-- Qui verranno inseriti i prodotti del carrello -->
+            </div>
+            <div class="modal-footer">
+                <button id="clear-cart" class="btn btn-dark">Svuota Carrello</button>
+                <a href="checkout.html" class="btn btn-dark">Procedi al Checkout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="../JS/cart.js"></script></body>
+
+</body>
+</html>
