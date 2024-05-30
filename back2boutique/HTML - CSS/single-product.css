@@ -1,0 +1,147 @@
+/* Stile generale del corpo */
+body {
+    background-color: #000000;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    border-bottom: 1px solid #0000;
+    background-color: #000000;
+}
+
+.navbar-collapse {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 40%;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+.logo-navbar {
+    width: 40%;
+}
+
+.nav-link {
+    color: black;
+}
+
+.nav-link:hover {
+    color: white;
+    background-color: #0000;
+}
+
+.navbar-toggler {
+    border: none; /* Rimuove il bordo del toggle */
+}
+
+.navbar-nav {
+    padding: 1%; /* Spaziatura tra gli elementi della navbar */
+    padding-left: 3%;
+}
+
+/* Dettagli del prodotto */
+#text {
+    color: #d3d3d3;
+}
+
+.product-container {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-container img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.product-container h2 {
+    color: white;
+}
+
+.product-container p {
+    color: lightgray;
+}
+
+.product-container .product-price {
+    color: white;
+}
+
+.product-container .btn {
+    background-color: #444;
+    color: white;
+}
+
+.product-container .btn:hover {
+    background-color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+}
+
+footer h4 {
+    color: #ffffff;
+}
+
+footer a {
+    color: #bdbdbd;
+}
+
+footer a:hover {
+    color: white;
+}
+
+footer .container {
+    padding-top: 20px;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer .navbar-brand img {
+    max-width: 100px;
+}
+
+footer .text-center {
+    padding: 10px;
+}
+
+#logo_footer {
+    width: 85%
+}
+
+/* Carrello Popup */
+.modal-content {
+    border-radius: 10px; /* arrotondare il bordo del popup */
+}
+
+.modal-header {
+    background-color: #000000;
+    color: white;
+}
+
+.modal-header .close {
+    color: white; /* colore del bottone di chiusura */
+}
+
+.modal-footer {
+    background-color: #f5f5f5; /* colore di sfondo del footer del popup */
+}
+
+.modal-footer .btn {
+    background-color: #000000; 
+    color: white; 
+}
+
+.modal-footer .btn:hover {
+    background-color: #000000;
+}
+
+
